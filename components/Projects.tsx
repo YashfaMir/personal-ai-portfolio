@@ -8,18 +8,33 @@ function ProjectCard({ p, featured = false }: { p: any; featured?: boolean }) {
   const isSodaPop = p.title === 'Soda Pop Product Design';
 
   return (
-    <article className={`project-card ${featured ? 'project-card-featured' : ''}`} aria-labelledby={`project-${p.title}`}>
+    <article
+      className={`project-card ${featured ? 'project-card-featured' : ''}`}
+      aria-labelledby={`project-${p.title}`}
+    >
       {isSkillPulse ? (
         <div className="project-image">
-          <img src="/projects/skillpulse/Employee Dashboard.png" alt="Employee Dashboard — SkillPulse AI" loading="lazy" />
+          <img
+            src="/projects/Skillpulse/Landing%20Page.png"
+            alt="SkillPulse AI landing page"
+            loading="lazy"
+          />
         </div>
       ) : isSocialConnect ? (
         <div className="project-image">
-          <img src="/social connect/welcome screen.png" alt="Welcome Screen — Social Connect App" loading="lazy" />
+          <img
+            src="/social connect/welcome screen.png"
+            alt="Welcome Screen — Social Connect App"
+            loading="lazy"
+          />
         </div>
       ) : isSodaPop ? (
         <div className="project-image">
-          <img src="/sodapop/mystic pop.png" alt="Soda Pop concept board" loading="lazy" />
+          <img
+            src="/sodapop/mystic pop.png"
+            alt="Soda Pop concept board"
+            loading="lazy"
+          />
         </div>
       ) : (
         <div className="project-image" aria-hidden="true">
@@ -28,20 +43,36 @@ function ProjectCard({ p, featured = false }: { p: any; featured?: boolean }) {
       )}
 
       <div className="project-content">
-        <div className="project-meta">{p.subtitle} • {p.year}</div>
-        <h3 id={`project-${p.title}`} className="project-title">{p.title}</h3>
+        <div className="project-meta">
+          {p.subtitle} • {p.year}
+        </div>
+
+        <h3 id={`project-${p.title}`} className="project-title">
+          {p.title}
+        </h3>
+
         <p className="project-description">{p.description}</p>
 
         <div className="project-tags" aria-label="Project tools">
           {p.tools.map((tool: string) => (
-            <span key={`${p.title}-${tool}`} className="project-tag">{tool}</span>
+            <span key={`${p.title}-${tool}`} className="project-tag">
+              {tool}
+            </span>
           ))}
         </div>
 
         <div className="project-footer">
           <Link
             className="project-cta btn btn-ghost"
-            href={isSkillPulse ? '/projects/skillpulse' : isSocialConnect ? '/projects/social-connect' : isSodaPop ? '/projects/soda-pop' : '#'}
+            href={
+              isSkillPulse
+                ? '/projects/skillpulse'
+                : isSocialConnect
+                ? '/projects/social-connect'
+                : isSodaPop
+                ? '/projects/soda-pop'
+                : '#'
+            }
           >
             Explore Case Study
           </Link>
